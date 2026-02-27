@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Notas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Calculadora de notas<span>universitarias</span></h1>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <p class="card-title">→ Ingresar materia</p>
+    <form id="grade-form" novalidate>
+      <div class="form-row">
+        <div class="field">
+          <label for="subject">Nombre de la materia *</label>
+          <input type="text" id="subject" placeholder="Ej. Cálculo I" />
+          <span class="error-msg" id="err-subject"></span>
+        </div>
+        <div class="field">
+          <label for="category">Categoría *</label>
+          <select id="category">
+            <option value="">— Seleccionar —</option>
+            <option value="Básica">Básica</option>
+            <option value="Técnica">Técnica</option>
+            <option value="Electiva">Electiva</option>
+            <option value="Práctica">Práctica</option>
+          </select>
+          <span class="error-msg" id="err-category"></span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="partial1">Laboratorio 1 (0–10) *</label>
+          <input type="number" id="partial1" placeholder="0.0" min="0" max="10" step="0.1" />
+          <span class="error-msg" id="err-partial1"></span>
+        </div>
+        <div class="field">
+          <label for="partial2">Laboratorio 2 (0–10) *</label>
+          <input type="number" id="partial2" placeholder="0.0" min="0" max="10" step="0.1" />
+          <span class="error-msg" id="err-partial2"></span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="final">Parcial  (0–10) *</label>
+          <input type="number" id="final" placeholder="0.0" min="0" max="10" step="0.1" />
+          <span class="error-msg" id="err-final"></span>
+        </div>
+        <div class="field">
+          <label for="weight">Peso del final</label>
+          <select id="weight">
+            <option value="0.4">40% — Estándar</option>
+            <option value="0.5">50% — Alto</option>
+            <option value="0.3">30% — Bajo</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit">Agregar materia →</button>
+    </form>
+  </div>
+
+  <!-- Results card -->
+  <div class="card" id="results-section">
+    <p class="card-title">→ Resultados</p>
+
+    <div class="summary-grid">
+      <div class="stat-box avg">
+        <div class="stat-value" id="stat-avg">—</div>
+        <div class="stat-label">Promedio</div>
+      </div>
+      <div class="stat-box passed">
+        <div class="stat-value" id="stat-pass">0</div>
+        <div class="stat-label">Aprobadas</div>
+      </div>
+      <div class="stat-box failed">
+        <div class="stat-value" id="stat-fail">0</div>
+        <div class="stat-label">Reprobadas</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <p class="list-title">Materias registradas</p>
+    <div id="cards-container"></div>
+
+    <button class="clear-btn" id="clear-btn">Limpiar todo</button>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
